@@ -62,7 +62,7 @@
       </el-col>
       <el-col :span="10">
         <el-image
-          v-if="certificationInfo.major"
+          v-if="certificationInfo.student_card_photo_src"
           style="width: 400px; height: 400px"
           :fit="fit"
           src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
@@ -93,7 +93,8 @@ export default {
         phone_number: '',
         id_number: '',
         school: '',
-        major: ''
+        major: '',
+        student_card_photo_src: ''
       }
     }
   },
