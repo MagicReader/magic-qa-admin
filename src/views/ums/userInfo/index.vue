@@ -75,7 +75,7 @@
 </template>
 
 <script>
-import { getPostInfo } from '../../../api/requsetMethods'
+import { getUserInfo } from '../../../api/requsetMethods'
 export default {
   name: 'userInfo-index',
   created () {
@@ -88,7 +88,7 @@ export default {
   methods: {
     // 更新列表
     updateTable () {
-      getPostInfo(this.queryForm)
+      getUserInfo(this.queryForm)
         .then(res => {
           console.log(res.data)
           const statusCode = res.data.status_code

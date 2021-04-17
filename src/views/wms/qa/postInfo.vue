@@ -108,12 +108,12 @@ export default {
           console.log(res.data)
           const statusCode = res.data.status_code
           switch (statusCode) {
-            case 321:
+            case 361:
               console.log('成功', res.data)
-              this.tableData = res.data.userInfo
+              this.tableData = res.data.postInfo
               this.queryForm.total = res.data.total
               break
-            case 322:
+            case 362:
               alert('获取用户数据失败')
               break
           }

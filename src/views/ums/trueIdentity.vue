@@ -57,19 +57,15 @@
       </el-col>
     </el-row>
     <el-row style="margin: 1%">
-      <el-col :span="2">
-        <span>身份认证照片：</span>
-      </el-col>
-      <el-col :span="10">
+        <span>身份认证照片：</span><br/><br/>
         <el-image
           v-if="certificationInfo.student_card_photo_src"
           style="width: 400px; height: 400px"
           :fit="fit"
-          src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"
+          :src="certificationInfo.student_card_photo_src"
         >
         </el-image>
         <span v-else>未上传认证照片</span>
-      </el-col>
     </el-row>
     <el-row style="text-align:center">
       <el-button  plain type="primary" @click="onClickBtn(3)">否定</el-button>
