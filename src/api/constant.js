@@ -1,6 +1,6 @@
 // 定义项目里需要的所有接口
 
-const BASE = 'http://49.234.89.231:8080'
+const BASE = 'http://49.234.89.231:8088/'
 
 // 定义需要的接口
 const constant = {
