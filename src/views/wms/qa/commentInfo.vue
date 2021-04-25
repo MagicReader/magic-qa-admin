@@ -43,29 +43,29 @@
       :cell-style="{ 'text-align': 'center', border: 'none' }"
       stripe
     >
-      <el-table-column prop="name" label="用户名" width="200">
+      <el-table-column prop="name" label="用户名" width="250">
         <template slot-scope="scope">
           <span>{{ scope.row.name }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="context" label="内容" width="200">
+      <el-table-column prop="context" label="内容" width="500">
         <template slot-scope="scope">
           <span>{{ scope.row.context }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="reply_number" label="回复数" width="200">
+      <el-table-column prop="reply_number" label="回复数" width="100">
         <template slot-scope="scope">
           <span>{{ scope.row.reply_number }}</span>
         </template>
       </el-table-column>
-       <el-table-column prop="state" label="发言身份" width="200">
+       <el-table-column prop="state" label="发言身份" width="120">
         <template slot-scope="scope">
           <span>{{ scope.row.state }}</span>
         </template>
       </el-table-column>
       <el-table-column prop="time" label="时间" width="200">
         <template slot-scope="scope">
-          <span>{{ scope.row.time }}</span>
+          <span>{{ timestampToTime(scope.row.time) }}</span>
         </template>
       </el-table-column>
       <el-table-column prop="post_id" label="评论详情">
@@ -90,9 +90,11 @@
 </template>
 
 <script>
+import time from '../../../mixins/time'
 import { getCommentInfo } from '../../../api/requsetMethods'
 export default {
   name: 'qa-commentInfo',
+  mixins: [time],
   created () {
     console.log('跳转主页后', localStorage.getItem('accessToken'), localStorage.getItem('refreshToken'))
     this.updateTable()

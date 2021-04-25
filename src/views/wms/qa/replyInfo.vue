@@ -43,34 +43,34 @@
       :cell-style="{ 'text-align': 'center', border: 'none' }"
       stripe
     >
-      <el-table-column prop="from_name" label="回复人" width="200">
+      <el-table-column prop="from_name" label="回复人" width="250">
         <template slot-scope="scope">
           <span>{{ scope.row.from_name }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="to_name" label="被回复人" width="200">
+      <el-table-column prop="to_name" label="被回复人" width="250">
         <template slot-scope="scope">
           <span>{{ scope.row.to_name }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="context" label="内容" width="200">
+      <el-table-column prop="context" label="内容" width="500">
         <template slot-scope="scope">
           <span>{{ scope.row.context }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="from_state" label="回复人发言身份" width="200">
+      <el-table-column prop="from_state" label="回复人发言身份" width="120">
         <template slot-scope="scope">
           <span>{{ scope.row.from_state }}</span>
         </template>
       </el-table-column>
-      <el-table-column prop="to_state" label="被回复人发言身份" width="200">
+      <el-table-column prop="to_state" label="被回复人发言身份" width="120">
         <template slot-scope="scope">
           <span>{{ scope.row.to_state }}</span>
         </template>
       </el-table-column>
       <el-table-column prop="time" label="时间" width="200">
         <template slot-scope="scope">
-          <span>{{ scope.row.time }}</span>
+          <span>{{ timestampToTime(scope.row.time) }}</span>
         </template>
       </el-table-column>
       <el-table-column prop="post_id" label="回复详情">
@@ -95,9 +95,11 @@
 </template>
 
 <script>
+import time from '../../../mixins/time'
 import { getReplyInfo } from '../../../api/requsetMethods'
 export default {
   name: 'qa-replyInfo',
+  mixins: [time],
   created () {
     console.log('跳转主页后', localStorage.getItem('accessToken'), localStorage.getItem('refreshToken'))
     this.updateTable()

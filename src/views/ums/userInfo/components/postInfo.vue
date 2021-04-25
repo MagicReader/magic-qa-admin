@@ -2,35 +2,31 @@
 <div>
   <el-card v-for="item in data" :key="item.post_id" @click="onClickCard(item.post_id)">
     <el-row style="margin: 1%">
-      <el-col :span="4">
         <div>
           <span>标题：</span>
           <span v-if="item.title">{{ item.title }}</span>
           <span v-else>-</span>
         </div>
-      </el-col>
-      <el-col :span="6">
         <div>
           <span>内容：</span>
           <span v-if="item.context">{{ item.context }}</span>
           <span v-else>-</span>
         </div>
-      </el-col>
-      <el-col :span="4">
         <div>
           <span>时间：</span>
-          <span v-if="item.time">{{ item.time }}</span>
+          <span v-if="item.time">{{  timestampToTime(item.time) }}</span>
           <span v-else>-</span>
         </div>
-      </el-col>
     </el-row>
   </el-card>
 </div>
 </template>
 
 <script>
+import time from '../../../../mixins/time'
 export default {
   name: 'postInfo',
+  mixins: [time],
   props: {
     data: {
       type: Array,
